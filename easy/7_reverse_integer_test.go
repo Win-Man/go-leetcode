@@ -17,28 +17,27 @@ import (
 )
 
 func reverse(x int) int {
+	var res int = 0
 	if x <= 0 {
 		x = -x
-		var res int = 0
 		for x > 0 {
 			res = res*10 + x%10
 			x = x / 10
 		}
-		if res > 1 << 31{
+		if res > 1<<31 {
 			res = 0
 		}
-		return -res
+		res = -res
 	} else {
-		var res int = 0
 		for x > 0 {
 			res = res*10 + x%10
 			x = x / 10
 		}
-		if res > 1 << 31 - 1{
+		if res > 1<<31-1 {
 			res = 0
 		}
-		return res
 	}
+	return res
 }
 
 func TestReverseDriven(t *testing.T) {
@@ -49,7 +48,7 @@ func TestReverseDriven(t *testing.T) {
 		{123, 321},
 		{-123, -321},
 		{120, 21},
-		{1534236469,0},
+		{1534236469, 0},
 	}
 
 	for _, tt := range tests {
