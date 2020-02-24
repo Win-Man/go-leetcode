@@ -10,57 +10,55 @@
  */
 package easy
 
-import(
+import (
 	"fmt"
 	"testing"
 )
 
 func romanToInt(s string) int {
 	var res int = 0
-    symbol_list := map[rune]int{
-		'I':1,
-		'V':5,
-		'X':10,
-		'L':50,
-		'C':100,
-		'D':500,
-		'M':1000,
+	symbolList := map[rune]int{
+		'I': 1,
+		'V': 5,
+		'X': 10,
+		'L': 50,
+		'C': 100,
+		'D': 500,
+		'M': 1000,
 	}
-	last_char_val := 0
-	for _,val := range s{
-		if symbol_list[val] > last_char_val{
-			res += symbol_list[val]
-			res -= last_char_val * 2
-			last_char_val = symbol_list[val]
-		}else{
-			res += symbol_list[val]
-			last_char_val = symbol_list[val]
+	lastCharVal := 0
+	for _, val := range s {
+		if symbolList[val] > lastCharVal {
+			res += symbolList[val]
+			res -= lastCharVal * 2
+			lastCharVal = symbolList[val]
+		} else {
+			res += symbolList[val]
+			lastCharVal = symbolList[val]
 		}
 	}
 	return res
 }
 
-func TestRomanToIntDriven(t *testing.T){
+func TestRomanToIntDriven(t *testing.T) {
 	var tests = []struct {
-		s string
+		s    string
 		want int
 	}{
-		{"III",3},
-		{"IV",4},
-		{"IX",9},
-		{"LVIII",58},
-		{"MCMXCIV",1994},
+		{"III", 3},
+		{"IV", 4},
+		{"IX", 9},
+		{"LVIII", 58},
+		{"MCMXCIV", 1994},
 	}
 
-	for _,tt := range tests{
-		testname := fmt.Sprintf("%s",tt.s)
-		t.Run(testname,func(t *testing.T){
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%s", tt.s)
+		t.Run(testname, func(t *testing.T) {
 			ans := romanToInt(tt.s)
-			if ans != tt.want{
-				t.Errorf("romanToInt(%s) got:%d want:%d",tt.s,ans,tt.want)
+			if ans != tt.want {
+				t.Errorf("romanToInt(%s) got:%d want:%d", tt.s, ans, tt.want)
 			}
 		})
 	}
 }
-
-

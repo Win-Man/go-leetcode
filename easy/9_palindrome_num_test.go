@@ -23,22 +23,22 @@ func isPalindrome(x int) bool {
 	} else if x == 0 {
 		res = true
 	} else {
-		num_list := make([]int, 0)
+		numList := make([]int, 0)
 		var tmp int = x
 		for {
-			num_list = append(num_list, tmp%10)
+			numList = append(numList, tmp%10)
 			tmp = tmp / 10
 			if tmp == 0 {
 				break
 			}
 		}
-		for i := 0; i < len(num_list); i++ {
-			j := len(num_list) - 1 - i
+		for i := 0; i < len(numList); i++ {
+			j := len(numList) - 1 - i
 			if j < i {
 				res = true
 				break
 			}
-			if num_list[i] != num_list[j] {
+			if numList[i] != numList[j] {
 				res = false
 				break
 			}
