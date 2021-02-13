@@ -11,7 +11,7 @@
 
 package pkg 
 
-func compareArrayInt(a,b []int)bool{
+func CompareArrayInt(a,b []int)bool{
 	if len(a) != len(b){
 		return false
 	}

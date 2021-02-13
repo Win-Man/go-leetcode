@@ -15,5 +15,7 @@ import (
 )
 
 func main() {
-	fmt.Println("this is main")
+	var a string = "789"
+	var num int = 1
+	fmt.Println(int(a[2]-'7') + num)
 }
