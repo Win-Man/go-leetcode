@@ -13,7 +13,6 @@ package easy
 
 import (
 	"fmt"
-	"reflect"
 	"testing"
 	"github.com/Win-Man/go-leetcode/pkg"
 )
@@ -42,7 +41,7 @@ func TestRunningSum(t *testing.T) {
 		testname := fmt.Sprintf("%v", tt.x)
 		t.Run(testname, func(t *testing.T) {
 			ans := runningSum(tt.x)
-			if compareArrayInt(ans,tt.want) {
+			if !pkg.CompareArrayInt(ans,tt.want) {
 				t.Errorf("runningSum(%v) got %v,want %v", tt.x, ans, tt.want)
 			}
 		})
